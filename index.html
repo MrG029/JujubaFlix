@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jujubaflix 🎬</title>
+  <link rel="stylesheet" href="style.css"> <!-- Conexão com o CSS externo -->
+</head>
+<body>
+
+  <!-- Título do Site -->
+  <header class="site-title">
+    <h1>🍿 Jujubaflix 🎬</h1>
+  </header>
+
+  <!-- Menu de navegação com o pôster do filme -->
+  <div class="navbar">
+    <div class="movie-poster">
+      <img src="roboselvagem.jpg" alt="Poster do filme Robô Selvagem">
+      <a href="#" onclick="showMovie('robo-selvagem')">🤖 Robô Selvagem</a>
+    </div>
+    <!-- Mais filmes podem ser adicionados abaixo usando a mesma estrutura -->
+  </div>
+
+  <!-- Seção de detalhes do filme -->
+  <div id="movie-section" class="movie-details">
+    <h2 id="movie-title"></h2>
+    <p><strong>🎞️ Sinopse:</strong> <span id="movie-synopsis"></span></p>
+    <p><strong>📽️ Gênero:</strong> <span id="movie-genre"></span></p>
+    <p><strong>🔞 Classificação:</strong> <span id="movie-rating"></span></p>
+    <div id="movie-trailer"></div>
+  </div>
+
+  <script>
+    // Dados do filme
+    const movies = {
+      "robo-selvagem": {
+        title: "Robô Selvagem",
+        synopsis: "Um robô que enfrenta perigos em uma aventura épica no futuro.",
+        genre: "Aventura, Ficção Científica",
+        rating: "12 anos",
+        trailerEmbed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/TbLVc8fnw7c?si=T5BkRraDCtj1XFrM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+      }
+    };
+
+    // Função para mostrar os detalhes do filme
+    function showMovie(movieId) {
+      const movie = movies[movieId];
+      if (movie) {
+        document.getElementById("movie-title").innerText = movie.title;
+        document.getElementById("movie-synopsis").innerText = movie.synopsis;
+        document.getElementById("movie-genre").innerText = movie.genre;
+        document.getElementById("movie-rating").innerText = movie.rating;
+        document.getElementById("movie-trailer").innerHTML = movie.trailerEmbed;
+        document.getElementById("movie-section").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
